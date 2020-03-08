@@ -3187,6 +3187,41 @@ public enum Features {
         }
     },
 
+    WARNING {
+        @Override
+        void addBlocks(ChiselBlockFactory factory) {
+            factory.newBlock(Material.ROCK, "warning", new ChiselBlockProvider<>(BlockCarvable::new, BlockCarvable.class)).opaque(false)
+                    .newVariation("generic")
+                    .next("biohazard")
+                    .next("fire")
+                    .next("explosion")
+                    .next("death")
+                    .next("falling")
+                    .next("fall")
+                    .next("voltage")
+                    .next("rad")
+                    .next("acid")
+                    .next("underconstruction")
+                    .next("sound")
+                    .next("noentry")
+                    .next("eldritch")
+                    .next("projectile")
+                    .next("crush")
+                    .next("monsters")
+                    .next("flux")
+                    .build();
+        }
+        
+        @Override
+        void addRecipes(IForgeRegistry<IRecipe> registry)
+        {
+            addShapedRecipe(registry,  new ItemStack(ChiselBlocks.warning, 16, 0), "***", "*!*, "***",
+                    '*', "stone",
+                    '!', new ItemStack(Items.SIGN));
+        }
+    },
+            
+
     WATERSTONE {
         @Override
         void addBlocks(ChiselBlockFactory factory) {
